@@ -1,12 +1,22 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Typography, Button, TextField, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, Grid, Card, CardContent, CardMedia, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
 
 export default function DonationPage() {
     const [donationType, setDonationType] = useState('single');
     const [customAmount, setCustomAmount] = useState('');
     const [open, setOpen] = useState(false);
+
+    useEffect(() => {
+        console.log(`Donation type changed to: ${donationType}`);
+    }, [donationType]);
+
+    useEffect(() => {
+        if (open) {
+            console.log('Modal is open');
+        }
+    }, [open]);
 
     const handleDonationTypeChange = (event) => {
         setDonationType(event.target.value);
