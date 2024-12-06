@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
@@ -15,7 +15,6 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import Link from "next/link";
-import NotificationsIcon from '@mui/icons-material/Notifications';
 
 const pages = [
   { name: "Home", url: "/dashboard" },
@@ -26,7 +25,7 @@ const pages = [
 const settings = [
   { name: "Profile", url : "/Profile"},
   { name: "Event History", url: "/eventHistory" },
-  { name: "Manage Events", url: "/Profile"},
+  { name: "Donation History", url: "/donationHistory"},
   { name: "Logout", url: "/Login"}];
 
 export default function NavBar() {

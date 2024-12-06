@@ -25,7 +25,7 @@ const pages = [
 const settings = [
   { name: "Profile", url : "/Profile"},
   { name: "Event History", url: "/eventHistory" },
-  { name: "Manage Events", url: "/Profile"},
+  { name: "Donation History", url: "/donationHistory"},
   { name: "Logout", url: "/Login"}];
 
 export default function NavBar() {
