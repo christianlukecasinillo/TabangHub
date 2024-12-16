@@ -66,7 +66,7 @@ export default function Profile() {
             <TextField
               id="bio"
               name="bio"
-              label="Bio"
+              label="About me"
               fullWidth
               multiline
               rows={4}

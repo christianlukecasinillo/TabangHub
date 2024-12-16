@@ -53,13 +53,13 @@ export default function DonationPage() {
                 </FormControl>
 
                 {/* Donation Options */}
-                <Grid container spacing={2} sx={{ mt: 4 }}>
+                <Grid container spacing={2} justifyContent="center" sx={{ mt: 4 }}>
                     {/* Option 1 */}
-                    <Grid item xs={12} sm={3}>
+                    <Grid item xs={12} sm={4} md={3}>
                         <Card sx={{ boxShadow: 3 }}>
                             <CardMedia
                                 component="img"
-                                height="100"
+                                height="200"
                                 image="/images/donation.png"
                                 alt="Donation"
                             />
@@ -75,7 +75,7 @@ export default function DonationPage() {
                     </Grid>
 
                     {/* Option 2 */}
-                    <Grid item xs={12} sm={3}>
+                    <Grid item xs={12} sm={4} md={3}>
                         <Card sx={{ boxShadow: 3 }}>
                             <CardMedia
                                 component="img"
@@ -95,7 +95,7 @@ export default function DonationPage() {
                     </Grid>
 
                     {/* Option 3 */}
-                    <Grid item xs={12} sm={3}>
+                    <Grid item xs={12} sm={4} md={3}>
                         <Card sx={{ boxShadow: 3 }}>
                             <CardMedia
                                 component="img"
@@ -114,12 +114,11 @@ export default function DonationPage() {
                         </Card>
                     </Grid>
                 </Grid>
-
                 {/* Custom Donation Amount */}
-                <Box sx={{ mt: 4, textAlign: 'center' }}>
+                <Box sx={{ mt: 2, textAlign: 'center' }}>
                     <Typography variant="body1">Or donate another amount:</Typography>
                     <TextField
-                        label="Other"
+                        label="Amount"
                         type="number"
                         value={customAmount}
                         onChange={handleCustomAmountChange}

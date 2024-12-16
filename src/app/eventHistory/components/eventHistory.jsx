@@ -20,20 +20,20 @@ export default function Cards() {
       >
         {/* Card 1 */}
         <Card 
-          sx={{ maxWidth: 345, maxHeight: 500, transition: 'transform 0.3s', '&:hover': { transform: 'scale(1.05)' } }}
+          sx={{ maxWidth: 345, maxHeight: 680, transition: 'transform 0.3s', '&:hover': { transform: 'scale(1.05)' } }}
         >
           <CardMedia
             component="img"
             height="140"
-            image="./images/pg.jpg"
+            image="./images/brush.png"
             alt="Photographer"
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              ABS-CBN
+              Brush & Canvas
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              ABS-CBN is seeking a volunteer who has at least 1 year experience in photography. This opportunity may involve capturing images for various events, programs, or initiatives led by ABS-CBN, potentially contributing to their projects related to media, community engagement, or corporate social responsibility.
+            Brush & Canvas is seeking a volunteer who has at least 1 year experience in photography. This opportunity may involve capturing images for various events, programs, or initiatives led by Brush & Canvas, potentially contributing to their projects related to media, community engagement, or corporate social responsibility.
             </Typography>
             <Button
               component={Link}

@@ -10,10 +10,10 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
+import MailIcon from "@mui/icons-material/Mail"; // Import Mail Icon
 import Link from "next/link";
 
 const pages = [
@@ -23,10 +23,11 @@ const pages = [
 ];
 
 const settings = [
-  { name: "Profile", url : "/Profile"},
+  { name: "My Profile", url: "/Profile" },
   { name: "Event History", url: "/eventHistory" },
-  { name: "Donation History", url: "/donationHistory"},
-  { name: "Logout", url: "/Login"}];
+  { name: "Donation History", url: "/donationHistory" },
+  { name: "Logout", url: "/Login" },
+];
 
 export default function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -48,21 +49,16 @@ export default function NavBar() {
   };
 
   return (
-    <AppBar
-      position="fixed"
-      className="bg-[#575c63]"
-      sx={{ boxShadow: "none" }}
-    >
+    <AppBar position="fixed" className="bg-[#575c63]" sx={{ boxShadow: "none" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* Logo and App Name */}
           <Box sx={{ display: "flex", alignItems: "center", mr: 2 }}>
-            {/* Replace with your logo */}
             <Link href="/dashboard">
               <Avatar
                 alt="Logo"
-                src="/images/tabanghub3.png" // Replace with your logo path
-                sx={{ width: 40, height: 40, mr: 1 }} // Logo size
+                src="/images/tabanghub3.png"
+                sx={{ width: 40, height: 40, mr: 1 }}
               />
             </Link>
             <Typography
@@ -83,82 +79,39 @@ export default function NavBar() {
             </Typography>
           </Box>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{ display: { xs: "block", md: "none" } }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page + 'menu-item'} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: "center" }}>{page.name}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-
-          {/* Small Screen Logo and App Name */}
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            TABANG-HUB
-          </Typography>
-
           {/* Navigation Links */}
-          <Box className='gap-4' sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Link                
+              <Link
                 href={page.url}
                 key={page.name}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                style={{ marginRight: "20px", color: "white", textDecoration: "none" }}
               >
                 {page.name}
               </Link>
             ))}
           </Box>
 
+          {/* Message Icon */}
+          <Tooltip title="Messages">
+            <IconButton
+              href="/messaging"
+              sx={{ marginRight: 2 }}
+              color="inherit"
+            >
+              <MailIcon />
+            </IconButton>
+          </Tooltip>
+
           {/* User Avatar and Menu */}
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton  onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="User Profile" src="/images/profile.png" />
               </IconButton>
             </Tooltip>
-            <Menu 
+            <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"
               anchorEl={anchorElUser}
@@ -175,13 +128,15 @@ export default function NavBar() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <Link 
-                href={setting.url}
-                key={setting.name} 
-                onClick={handleCloseUserMenu}>
-                  <Typography sx={{ textAlign: "center" }}>
-                    {setting.name}
-                  </Typography>
+                <Link
+                  href={setting.url}
+                  key={setting.name}
+                  onClick={handleCloseUserMenu}
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  <MenuItem>
+                    <Typography textAlign="center">{setting.name}</Typography>
+                  </MenuItem>
                 </Link>
               ))}
             </Menu>
