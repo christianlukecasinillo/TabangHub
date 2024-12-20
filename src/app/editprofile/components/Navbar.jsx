@@ -7,13 +7,15 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
-import MailIcon from "@mui/icons-material/Mail"; // Import Mail Icon
+import InputBase from "@mui/material/InputBase";
+import Badge from "@mui/material/Badge";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import MailIcon from "@mui/icons-material/Mail";
+import SearchIcon from "@mui/icons-material/Search";
 import Link from "next/link";
 
 const pages = [
@@ -93,6 +95,27 @@ export default function NavBar() {
             ))}
           </Box>
 
+          {/* Search Bar */}
+          <Box
+            sx={{
+              mx: 2,
+              display: { xs: "none", md: "flex" },
+              alignItems: "center",
+              backgroundColor: "#f1f3f4",
+              borderRadius: 50,
+              padding: "2px 10px",
+              flexGrow: 1,
+              maxWidth: "400px",
+            }}
+          >
+            <SearchIcon sx={{ color: "#9e9e9e", mr: 1 }} />
+            <InputBase
+              placeholder="Search event"
+              sx={{ flex: 1 }}
+              inputProps={{ "aria-label": "search" }}
+            />
+          </Box>
+
           {/* Message Icon */}
           <Tooltip title="Messages">
             <IconButton
@@ -103,6 +126,13 @@ export default function NavBar() {
               <MailIcon />
             </IconButton>
           </Tooltip>
+
+          {/* Notifications */}
+          <IconButton color="inherit" sx={{ marginRight: 2 }}>
+            <Badge badgeContent={60} color="error">
+              <NotificationsIcon />
+            </Badge>
+          </IconButton>
 
           {/* User Avatar and Menu */}
           <Box sx={{ flexGrow: 0 }}>
